@@ -1,3 +1,6 @@
+// this is written in a more immutable way
+// it means every time we call a function with bird, we don't update the bird in place but create a new bird.
+
 type Vector = {
   x: number;
   y: number;

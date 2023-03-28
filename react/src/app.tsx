@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Bird } from "./components";
-import * as birdModule from "./modules/bird";
+import * as birdModule from "./modules/bird-v1";
 
 const RANGE = {
   x: 640,
