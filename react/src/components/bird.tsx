@@ -9,15 +9,15 @@ export type BirdProps = {
   y: number;
   size: number;
   color: string;
-  move: {
+  next: {
     x: number;
     y: number;
   };
 };
 
 export const Bird = (props: BirdProps) => {
-  const { x, y, size, move, color } = props;
-  const rotation = calcRotation(move);
+  const { x, y, size, next, color } = props;
+  const rotation = calcRotation(next);
 
   return (
     <svg
