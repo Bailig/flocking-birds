@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Bird } from "./components";
-import * as birdModule from "./modules/bird-v1";
+import * as birdModule from "./modules/bird-mutable";
 
 const RANGE = {
   x: 640,
@@ -42,7 +42,7 @@ export const App = () => {
 
   useEffect(() => {
     const timestamps = timestampsRef.current;
-    if (timestamps.length > TRACK_TOTAL_COUNT) {
+    if (timestamps.length - 1 > TRACK_TOTAL_COUNT) {
       console.log(timestamps);
       return;
     }
