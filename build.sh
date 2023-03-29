@@ -25,3 +25,7 @@ cd solid;
 pnpm build;
 mkdir -p ../dist/solid; 
 mv dist/* ../dist/solid;
+cd ..
+
+# copy index.html
+cp index.html dist
