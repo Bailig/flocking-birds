@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Front-end Render Performant Test with Flocking Birds</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-base-300">
+    <div class="h-screen grid place-content-center gap-20 text-center">
+      <h1 class="text-3xl">
+        Front-end Render Performant Test with Flocking Birds
+      </h1>
+
+      <div class="grid gap-8">
+        <input
+          type="number"
+          placeholder="Input number of birds..."
+          class="input w-full max-w-xs justify-self-center"
+          onchange="handleBirdCountChange(this)"
+        />
+        <div class="grid grid-cols-4 gap-4">
+          <a href="curry" data-path="curry" class="btn">React Curry</a>
+          <a href="immutable" data-path="immutable" class="btn"
+            >React Immutable</a
+          >
+          <a href="mutable" data-path="mutable" class="btn">React Mutable</a>
+          <a href="solid" data-path="solid" class="btn">Solid</a>
+        </div>
+      </div>
+    </div>
+    <script>
+      function handleBirdCountChange(target) {
+        const birdCount = target.value;
+        const anchorEls = document.querySelectorAll("a");
+        anchorEls.forEach((el) => {
+          el.href = `${el.dataset.path}?birdCount=${birdCount}`;
+        });
+      }
+    </script>
+  </body>
+</html>
