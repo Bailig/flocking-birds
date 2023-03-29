@@ -1,6 +1,16 @@
 import { useEffect, useRef, useState } from "react";
 import { Bird } from "./components";
-import * as birdModule from "./modules/bird-mutable";
+import * as mutableBirdModule from "./modules/bird-mutable";
+import * as immutableBirdModule from "./modules/bird-immutable";
+import * as curryBirdModule from "./modules/bird-curry";
+
+const birdModuleMap = {
+  mutable: mutableBirdModule,
+  immutable: immutableBirdModule,
+  curry: curryBirdModule,
+};
+
+const birdModule = birdModuleMap[import.meta.env.VITE_BIRD_TYPE];
 
 const RANGE = {
   x: 640,
@@ -36,7 +46,7 @@ const getColor = (frameCount: number) => {
 };
 
 export const App = () => {
-  const [birds, setBirds] = useState(birdModule.createRandomBirds(200, RANGE));
+  const [birds, setBirds] = useState(birdModule.createRandomBirds(300, RANGE));
   const frameCountRef = useRef(0);
   const timestampsRef = useRef<number[]>([]);
 
@@ -51,7 +61,11 @@ export const App = () => {
       if (frameCountRef.current % TRACK_PER_FRAME === 0) {
         timestamps.push(performance.now());
       }
-      return birdModule.update(birds, getColor(frameCountRef.current), RANGE);
+      return birdModule.update(
+        birds as any,
+        getColor(frameCountRef.current),
+        RANGE
+      );
     });
   }, [birds]);
 

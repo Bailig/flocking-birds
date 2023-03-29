@@ -37,7 +37,7 @@ const getColor = (frameCount: number) => {
 
 export const App = () => {
   const [birds, setBirds] = createSignal(
-    birdModule.createRandomBirds(200, RANGE)
+    birdModule.createRandomBirds(300, RANGE)
   );
 
   let frameCount = 0;
