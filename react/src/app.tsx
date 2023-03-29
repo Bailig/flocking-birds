@@ -45,8 +45,15 @@ const getColor = (frameCount: number) => {
   return COLORS[colorIndex]!;
 };
 
+const getBirdCount = () => {
+  const searchParams = new URLSearchParams(location.search);
+  return parseInt(searchParams.get("birdCount") || "300", 10);
+};
+
 export const App = () => {
-  const [birds, setBirds] = useState(birdModule.createRandomBirds(300, RANGE));
+  const [birds, setBirds] = useState(
+    birdModule.createRandomBirds(getBirdCount(), RANGE)
+  );
   const frameCountRef = useRef(0);
   const timestampsRef = useRef<number[]>([]);
 
