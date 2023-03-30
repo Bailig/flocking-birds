@@ -214,13 +214,6 @@ export const update = (
       changeColor(color),
       move
     )(bird);
-    // bird = align(bird, birds);
-    // bird = cohesion(bird, birds);
-    // bird = separate(bird, birds);
-    // bird = bounce(bird, range);
-    // bird = changeColor(bird, color);
-    // bird = move(bird);
-    // return bird;
   });
 };
 

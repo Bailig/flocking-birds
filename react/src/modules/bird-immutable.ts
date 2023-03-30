@@ -194,9 +194,10 @@ export const update = (
   range: { x: number; y: number }
 ): Bird[] => {
   return birds.map((bird) => {
-    bird = align(bird, birds);
-    bird = cohesion(bird, birds);
-    bird = separate(bird, birds);
+    const others = birds.filter((b) => b.id !== bird.id);
+    bird = align(bird, others);
+    bird = cohesion(bird, others);
+    bird = separate(bird, others);
     bird = bounce(bird, range);
     bird = changeColor(bird, color);
     bird = move(bird);
