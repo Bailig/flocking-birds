@@ -205,11 +205,10 @@ export const update = (
   range: { x: number; y: number }
 ): Bird[] => {
   return birds.map((bird) => {
-    const others = birds.filter((b) => b.id !== bird.id);
     return pipe(
-      align(others),
-      cohesion(others),
-      separate(others),
+      align(birds),
+      cohesion(birds),
+      separate(birds),
       bounce(range),
       changeColor(color),
       move

@@ -50,7 +50,7 @@ export const App = () => {
 
   createEffect(() => {
     birds();
-    if (timestamps.length - 1 > TRACK_TOTAL_COUNT) {
+    if (timestamps.length + 1 > TRACK_TOTAL_COUNT) {
       console.log(timestamps);
       return;
     }
