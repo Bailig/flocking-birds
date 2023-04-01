@@ -28,7 +28,7 @@ const COLORS = [
 ];
 
 const TRACK_PER_FRAME = 1;
-const TRACK_TOTAL_COUNT = 60;
+const TRACK_TOTAL_COUNT = 3000;
 
 const getColor = (frameCount: number) => {
   const colorIndex = Math.floor(frameCount / TRACK_PER_FRAME) % COLORS.length;
