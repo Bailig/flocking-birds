@@ -24,11 +24,12 @@
           type="number"
           placeholder="Input number of birds..."
           class="input w-full max-w-xs justify-self-center"
-          onchange="handleBirdCountChange(this)"
-          onload="handleBirdCountChange(this)"
+          onchange="handleBirdCountChange(this.value)"
         />
         <div class="grid grid-cols-4 gap-4">
-          <a href="curry" data-path="curry" class="btn">React Curry</a>
+          <a href="curry.html" data-path="curry.html" class="btn"
+            >React Curry</a
+          >
           <a href="immutable" data-path="immutable" class="btn"
             >React Immutable</a
           >
@@ -38,8 +39,14 @@
       </div>
     </div>
     <script>
-      function handleBirdCountChange(target) {
-        const birdCount = target.value;
+      window.addEventListener("pageshow", () => {
+        const { value } = document.querySelector("input");
+        if (value) {
+          handleBirdCountChange(value);
+        }
+      });
+
+      function handleBirdCountChange(birdCount) {
         const anchorEls = document.querySelectorAll("a");
         anchorEls.forEach((el) => {
           el.href = `${el.dataset.path}?birdCount=${birdCount}`;
