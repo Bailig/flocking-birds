@@ -27,7 +27,7 @@ const COLORS = [
   "#fda4af",
 ];
 
-const TRACK_PER_FRAME = 60;
+const TRACK_PER_FRAME = 1;
 const TRACK_TOTAL_COUNT = 60;
 
 const getColor = (frameCount: number) => {
