@@ -27,11 +27,13 @@ const COLORS = [
   "#fda4af",
 ];
 
+const CHANGE_COLOR_PER_FRAME = 60;
 const TRACK_PER_FRAME = 1;
 const TRACK_TOTAL_COUNT = 3000;
 
 const getColor = (frameCount: number) => {
-  const colorIndex = Math.floor(frameCount / TRACK_PER_FRAME) % COLORS.length;
+  const colorIndex =
+    Math.floor(frameCount / CHANGE_COLOR_PER_FRAME) % COLORS.length;
   return COLORS[colorIndex]!;
 };
 
